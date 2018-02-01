@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_fruit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/colorGray"
+    app:cardCornerRadius="4dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/listPreferredItemHeight"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:fillViewport="true">
+
+        <ImageView
+            android:id="@+id/image_view_fruit"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/plum_bg"
+            />
+
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:text="@string/name_fruit"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:padding="8dp"
+            android:maxLines="3"
+            android:layout_below="@+id/image_view_fruit"
+            />
+
+        <TextView
+            android:id="@+id/text_view_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_name"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:text="@string/description_fruit"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14dp"
+            />
+
+        <TextView
+            android:id="@+id/textViewQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_view_name"
+            android:layout_alignBottom="@+id/text_view_name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp"
+            android:text="10"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14dp" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
