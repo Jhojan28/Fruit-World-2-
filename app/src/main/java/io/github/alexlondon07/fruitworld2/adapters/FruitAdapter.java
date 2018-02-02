@@ -55,36 +55,31 @@ public class FruitAdapter  extends BaseAdapter{
              convertView = LayoutInflater.from(context).inflate(layout, null);
 
             viewHolder = new ViewHolder();
-            viewHolder.name = convertView.findViewById(R.id.text_view_name);
-            viewHolder.description = convertView.findViewById(R.id.text_view_description);
-            viewHolder.image = convertView.findViewById(R.id.image_view_fruit);
-            viewHolder.quantity = convertView.findViewById(R.id.textViewQuantity);
-
+            viewHolder.textViewName = convertView.findViewById(R.id.text_view_name);
+            viewHolder.textViewDescription = convertView.findViewById(R.id.text_view_description);
+            viewHolder.textViewQuantity = convertView.findViewById(R.id.text_view_quantity);
+            viewHolder.imageViewImage = convertView.findViewById(R.id.image_view_fruit);
             convertView.setTag(viewHolder);
 
         }else{
             //Obtenemos la referencia, reciclamos su uso sin necesidad de buscar de nuevo
-
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
 
         //Obtenemos el objeto actual
         final Fruit currentFruit = getItem(position);
-        viewHolder.name.setText(currentFruit.getName());
-        viewHolder.description.setText(currentFruit.getDescription());
-        viewHolder.quantity.setText(currentFruit.getQuantity());
-        viewHolder.image.setImageResource(currentFruit.getImage());
-        viewHolder.icon.setImageResource(currentFruit.getIcon());
-
+        viewHolder.textViewName.setText(currentFruit.getName());
+        viewHolder.textViewDescription.setText(currentFruit.getDescription());
+        viewHolder.textViewQuantity.setText(Integer.toString(currentFruit.getQuantity()));
+        viewHolder.imageViewImage.setImageResource(currentFruit.getImage());
 
         //Retornamos el Objeto fruta con los datos correspondientes
         return convertView;
     }
 
-
     static class ViewHolder{
-        private TextView name, description, quantity;
-        private ImageView icon, image;
+        private TextView textViewName, textViewDescription, textViewQuantity;
+        private ImageView imageViewImage;
     }
 }

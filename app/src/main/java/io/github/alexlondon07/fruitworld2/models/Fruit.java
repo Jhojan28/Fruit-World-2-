@@ -12,6 +12,9 @@ public class Fruit implements Serializable {
     private int image, icon;
     private int quantity;
 
+    // Valores accesibles estáticamente
+    public final int LIMIT_QUANTITY = 10;
+
     public Fruit() {
     }
 
@@ -62,4 +65,16 @@ public class Fruit implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+
+    /**
+     * Metódo para aumentar el contador de Cantidad de Cada Fruta
+     * @param quantity
+     */
+    public void AddQuanity(int quantity){
+        if(this.quantity < LIMIT_QUANTITY){
+            this.quantity += quantity;
+        }
+    }
+
 }

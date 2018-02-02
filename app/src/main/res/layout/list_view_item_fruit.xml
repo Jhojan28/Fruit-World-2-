@@ -7,9 +7,7 @@
     android:layout_height="wrap_content"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/colorGray"
-    app:cardCornerRadius="4dp"
-    android:clickable="true"
-    android:focusable="true">
+    app:cardCornerRadius="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +15,8 @@
         android:minHeight="?attr/listPreferredItemHeight"
         android:orientation="vertical"
         android:paddingBottom="8dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="8dp"
         android:fillViewport="true">
 
@@ -27,7 +26,8 @@
             android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/plum_bg"
+            android:src="@drawable/apple_bg"
+
             />
 
         <TextView
@@ -56,13 +56,12 @@
             />
 
         <TextView
-            android:id="@+id/textViewQuantity"
+            android:id="@+id/text_view_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/text_view_name"
             android:layout_alignBottom="@+id/text_view_name"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="11dp"
             android:text="10"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="14dp" />
