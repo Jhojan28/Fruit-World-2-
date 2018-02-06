@@ -71,10 +71,18 @@ public class Fruit implements Serializable {
      * Metódo para aumentar el contador de Cantidad de Cada Fruta
      * @param quantity
      */
-    public void AddQuanity(int quantity){
+    public void addQuantity(int quantity){
         if(this.quantity < LIMIT_QUANTITY){
             this.quantity += quantity;
         }
+    }
+
+    /**
+     * Funcion para resetear la cantidad de cada Objeto fruta
+     */
+    public void resetQuantity() {
+        if(this.quantity > 0)
+            this.quantity = 0;
     }
 
 }

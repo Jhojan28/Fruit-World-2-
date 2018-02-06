@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        this.clickFruit(fruitList.get(position), position);
+        this.clickFruit(fruitList.get(position));
     }
 
     @Override
@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // Antes de inflar, le añadimos el header dependiendo del objeto que se halla clickeado
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         menu.setHeaderTitle(this.fruitList.get(info.position).getName());
+        menu.setHeaderIcon(this.fruitList.get(info.position).getIcon());
 
         // Inflamos
         inflater.inflate(R.menu.context_menu_fruits, menu);
@@ -135,9 +136,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.delete_fruit:
                 this.deleteFruit(info.position);
                 return true;
+
+            case R.id.reset_quantity:
+                 this.resetQuantityFruit(fruitList.get(info.position));
+                 return true;
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    private void resetQuantityFruit(Fruit fruit) {
+        fruit.resetQuantity();
+        this.adapterListView.notifyDataSetChanged();
     }
 
     /**
@@ -165,16 +175,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      * Metodo para mostrar un mensaje el Usuario del elemento selecionado
      * @param fruit
      */
-    private void clickFruit(Fruit fruit, int position) {
+    private void clickFruit(Fruit fruit) {
 
         //Incrementamos la cantidad de la fruta seleccionada
-        fruit.AddQuanity(1);
+        fruit.addQuantity(1);
 
         //Notificamos que el elemento ha cambiando
         this.adapterListView.notifyDataSetChanged();
 
+        /*if(fruit.getQuantity() == fruit.LIMIT_QUANTITY){
+            TextView textElement = findViewById(R.id.text_view_quantity);
+            textElement.setTextColor(getResources().getColor(R.color.colorAccent)); //this is green color
+        }*/
+
         if(fruit.getQuantity() >= fruit.LIMIT_QUANTITY){
-            Toast.makeText(this, "The amount cannot exceed 10 ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "The amount cannot exceed " + fruit.LIMIT_QUANTITY, Toast.LENGTH_SHORT).show();
         }
     }
 }
